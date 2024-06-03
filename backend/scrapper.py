@@ -2,7 +2,7 @@ import csv
 import requests
 import pandas as pd
 from jobspy import scrape_jobs
-
+import uuid
 
 #Job title
 #Company name
@@ -23,7 +23,10 @@ jobs = scrape_jobs(
     
 )
 
-filter_jobs = jobs[['title', 'company', 'location', 'interval', 'min_amount', 'max_amount', 'currency', 'description']]
+# Generate Random Int for Job Site
+jobs['id'] = [str(uuid.uuid4()) for _ in range(len(jobs))]
+
+filter_jobs = jobs[['title', 'company', 'location', 'interval', 'min_amount', 'max_amount', 'currency', 'description', 'id']]
 
 json_data = filter_jobs.to_json(orient='records')
 

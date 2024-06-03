@@ -1,11 +1,10 @@
-import React from 'react';
-import Job from './Job';
-//import './JobList.css';
+import React from "react";
+import Job from "./Job";
 
 const JobList = ({ jobs }) => {
   return (
     <div className="job-list">
-      {jobs.map((job, index) => (
+      {jobs.map((job) => (
         <Job key={index} job={job} />
       ))}
     </div>

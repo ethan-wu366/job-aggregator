@@ -1,0 +1,24 @@
+.card {
+  width: 60%;
+  margin: 3% auto;
+  text-align: left;
+}
+
+.cardText {
+  font-family: Balto, sans-serif;
+}
+
+.titleText {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.infoText {
+  font-size: 14px;
+}
+
+.payText {
+  font-size: 20px;
+  color: #008055;
+  font-weight: 600;
+}
