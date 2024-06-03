@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import "./style/Job.css";
 
-const Job = ({ key, job }) => {
+const Job = ({ index, job }) => {
 
   //ensure each job has a unique id
   const { id } = useParams();
@@ -20,7 +20,7 @@ const Job = ({ key, job }) => {
             ${job.min_amount}-{job.max_amount}/hour
           </h3>
           <h3>{id}</h3>
-          <Link to={`/${key}`} className="btn btn-primary">
+          <Link to={`/${index}`} className="btn btn-primary">
             More Info
           </Link>
         </div>
