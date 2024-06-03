@@ -4,9 +4,6 @@ import "./style/Job.css";
 
 const Job = ({ index, job }) => {
 
-  //ensure each job has a unique id
-  const { id } = useParams();
-
   //TODO: Add hover over card effect
   return (
     <div className="job-item">

@@ -28,7 +28,7 @@ The demanding role of a caregiver is hard enough, job searching shouldn't add to
 - Node.js
 - React.js
 - Axios
-- 
+
 
 
 ### Usage
@@ -45,7 +45,9 @@ The demanding role of a caregiver is hard enough, job searching shouldn't add to
 
 ### How it works!
 
-The backend uses JobSpy to scrape job listing information from Indeed. 
+The backend uses Express.js server. It uses JobSpy to scrape job listing information from Indeed. It also uses an Express Router to run the scrapper and send the results to http://localhost:3000/scrape.
+
+The frontend uses a React.js app. It uses Axios to get data from the backend. Infinite scrolling was implemented with the 'react-infinite-scroll-component' [Helpful Guide!](https://dev.to/vishnusatheesh/exploring-infinite-scroll-techniques-in-react-1bn0). Dynamic routing was done with "react-router-dom" Links.
 
 ### Optional
 
