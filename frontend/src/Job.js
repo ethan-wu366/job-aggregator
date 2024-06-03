@@ -19,7 +19,6 @@ const Job = ({ index, job }) => {
           <h3 className="cardText payText">
             ${job.min_amount}-{job.max_amount}/hour
           </h3>
-          <h3>{id}</h3>
           <Link to={`/job/${index}`} className="btn btn-primary">
             More Info
           </Link>

@@ -42,7 +42,7 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-        
+        <Route path="/job/:id" element={<JobDetails jobs={jobs} />} />
           <Route exact path="/" element={<><h1>Caregiver Job Listings</h1>
             <InfiniteScroll
               dataLength={jobs.length}
@@ -57,7 +57,7 @@ function App() {
             </InfiniteScroll>
           </>}
           >
-           <Route path="/job/:id" element={<JobDetails jobs={jobs} />} />
+           
           </Route>
         </Routes>
       </div>
