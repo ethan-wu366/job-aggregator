@@ -20,7 +20,7 @@ const Job = ({ index, job }) => {
             ${job.min_amount}-{job.max_amount}/hour
           </h3>
           <h3>{id}</h3>
-          <Link to={`/${index}`} className="btn btn-primary">
+          <Link to={`/job/${index}`} className="btn btn-primary">
             More Info
           </Link>
         </div>
