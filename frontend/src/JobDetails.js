@@ -1,12 +1,12 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const JobDetails = ({ jobs }) => {
   const { id } = useParams();
   const job = jobs[id];
 
   if (!job) {
-    return <div>Job not found</div>;
+    return <div>Job not found :(</div>;
   }
 
   return (
@@ -24,6 +24,9 @@ const JobDetails = ({ jobs }) => {
       </p>
       <p>{job.description}</p>
       <p>{job.job_url}</p>
+      <Link to={`/`} className="btn btn-primary">
+            Back to Jobs
+        </Link>
     </div>
   );
 };

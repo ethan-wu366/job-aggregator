@@ -1,6 +1,5 @@
 import React from "react";
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import "./style/Job.css";
 
 const Job = ({ index, job }) => {
@@ -19,12 +18,11 @@ const Job = ({ index, job }) => {
           <h3 className="cardText payText">
             ${job.min_amount}-{job.max_amount}/hour
           </h3>
-          <Link to={`/job/${index}`} className="btn btn-primary">
+          <Link to={`/job/${index}`} className="btn btn-success">
             More Info
           </Link>
         </div>
       </div>
-      <p>{job.description}</p>
     </div>
   );
 };

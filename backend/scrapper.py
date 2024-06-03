@@ -23,10 +23,7 @@ jobs = scrape_jobs(
     
 )
 
-# Generate Random Int for Job Site
-jobs['id'] = [str(uuid.uuid4()) for _ in range(len(jobs))]
-
-filter_jobs = jobs[['title', 'company', 'location', 'interval', 'min_amount', 'max_amount', 'currency', 'description', 'id']]
+filter_jobs = jobs[['title', 'company', 'location', 'interval', 'min_amount', 'max_amount', 'currency', 'description', 'job_url']]
 
 json_data = filter_jobs.to_json(orient='records')
 
