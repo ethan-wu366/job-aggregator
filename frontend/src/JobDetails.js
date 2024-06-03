@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
+import "./style/Job.css";
 
 const JobDetails = ({ jobs }) => {
   const { id } = useParams();
@@ -22,9 +23,9 @@ const JobDetails = ({ jobs }) => {
         <strong>Pay Rate:</strong> {job.min_amount} - {job.max_amount}{" "}
         {job.currency}
       </p>
-      <p>{job.description}</p>
-      <p>{job.job_url}</p>
-      <Link to={`/`} className="btn btn-primary">
+      <p><strong>Description:</strong>{job.description}</p>
+      <a href={job.job_url} className="btn btn-success">Apply Here!</a>
+      <Link to={`/`} className="btn btn-success">
             Back to Jobs
         </Link>
     </div>
