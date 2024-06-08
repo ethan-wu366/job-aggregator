@@ -1,20 +1,23 @@
 const express = require("express");
 const { exec } = require("child_process");
+const fs = require("fs");
+const path = require("path");
 const router = express.Router();
 
+const jobDataFile = path.join(__dirname, "../data/jobs.json");
+
 router.get("/scrape", (req, res) => {
-  // Execute the Python script as a child process
   exec("python3 scrapper.py", (error, stdout, stderr) => {
     if (error) {
       console.error("Error executing script:", error);
       res.status(500).json({ error: "Internal Server Error" });
       return;
     }
-    // Log the script's output
     console.log("Script output:", stdout);
-    // Parse the JSON output
+
+    // Parse and save the JSON output for search
     const jsonData = JSON.parse(stdout);
-    // Send the JSON data as a response
+    fs.writeFileSync(jobDataFile, JSON.stringify(jsonData, null, 2));
     res.json(jsonData);
   });
 });

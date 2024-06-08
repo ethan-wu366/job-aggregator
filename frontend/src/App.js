@@ -4,12 +4,14 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import JobList from "./Joblist";
 import JobDetails from "./JobDetails";
+import Search from "./Search";
 import "./style/App.css";
 
 function App() {
   const [jobs, setJobs] = useState([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const [searched, setSearched] = useState(false); // Boolean to track if search was initiated
 
   const fetchJobs = async (page) => {
     try {
@@ -38,27 +40,42 @@ function App() {
     fetchMoreJobs();
   }, []);
 
+  const handleSearch = (isEmpty, searchResults) => {
+    setSearched(!isEmpty);
+    // If search active, only show search results
+    if (!isEmpty) {
+      setJobs(searchResults);
+    }
+  };
+
   return (
     <Router>
       <div className="App">
         <Routes>
-        <Route path="/job/:id" element={<JobDetails jobs={jobs} />} />
-          <Route exact path="/" element={<><h1>Caregiver Job Listings</h1>
-            <InfiniteScroll
-              dataLength={jobs.length}
-              next={fetchMoreJobs}
-              hasMore={hasMore}
-              loader={<h4>Loading...</h4>}
-              endMessage={<p>Here are all the jobs!</p>}
-            >
-              <div>
-                <JobList jobs={jobs} />
-              </div>
-            </InfiniteScroll>
-          </>}
-          >
-           
-          </Route>
+          <Route path="/job/:id" element={<JobDetails jobs={jobs} />} />
+          <Route
+            exact
+            path="/"
+            element={
+              <>
+                <h1>Caregiver Job Listings</h1>
+                <Search onSearch={handleSearch} />
+                {!searched && (
+                  <InfiniteScroll
+                    dataLength={jobs.length}
+                    next={fetchMoreJobs}
+                    hasMore={hasMore}
+                    loader={<h4>Loading...</h4>}
+                    endMessage={<p>Here are all the jobs!</p>}
+                  >
+                    <div>
+                      <JobList jobs={jobs} />
+                    </div>
+                  </InfiniteScroll>
+                )}
+              </>
+            }
+          ></Route>
         </Routes>
       </div>
     </Router>

@@ -1,9 +1,8 @@
 import React from "react";
-import { useParams, Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import "./style/Job.css";
 
 const Job = ({ index, job }) => {
-
   //TODO: Add hover over card effect
   return (
     <div className="job-item">

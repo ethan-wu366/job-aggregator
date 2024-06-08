@@ -23,11 +23,16 @@ const JobDetails = ({ jobs }) => {
         <strong>Pay Rate:</strong> {job.min_amount} - {job.max_amount}{" "}
         {job.currency}
       </p>
-      <p><strong>Description:</strong>{job.description}</p>
-      <a href={job.job_url} className="btn btn-success">Apply Here!</a>
+      <p>
+        <strong>Job Description and Requirements:</strong>
+        {job.description}
+      </p>
+      <a href={job.job_url} className="btn btn-success">
+        Apply Here!
+      </a>
       <Link to={`/`} className="btn btn-success">
-            Back to Jobs
-        </Link>
+        Back to Jobs
+      </Link>
     </div>
   );
 };
